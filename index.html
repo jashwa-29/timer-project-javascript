@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .timer-box{
+            background-color:black;
+            width: 500px;
+            height: 300px;
+            padding: 50px 0px;
+            margin-right: auto;
+            margin-left: auto;
+            border-radius: 10px;
+        }
+        h1{
+            color: red;
+            font-size: 48px;
+        }
+        h3{
+            color: white;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-box">
+        <h1>Javascript Timer</h1>
+        <div><h3 class="time"  id="main-id">00.00</h3></div>
+    </div>
+    <script>
+    let dclock = document.getElementById("main-id");
+    setInterval(() => {
+    let times = new Date();
+    let hours = times.getHours();
+    let minutes = times.getMinutes();
+    let seconds = times.getSeconds();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    const gettime = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds + ' ' + ampm;
+    dclock.innerHTML = gettime;
+    console.log(gettime);
+    }, 1000);
+</script>
+</body>
+</html>
